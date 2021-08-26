@@ -33,9 +33,9 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Row(
           children: <Widget>[
             navItem('assets/icons/home.svg', 0),
-            navItem('assets/icons/home.svg', 1),
-            navItem('assets/icons/home.svg', 2),
-            navItem('assets/icons/home.svg', 3)
+            navItem('assets/icons/flag.svg', 1),
+            navItem('assets/icons/categories.svg', 2),
+            navItem('assets/icons/settings.svg', 3)
           ],
         ),
       ),
@@ -51,6 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
         },
         child: Container(
           height: 50,
+          padding: EdgeInsets.all(16.5),
           width: (MediaQuery.of(context).size.width / 4) - 8,
           decoration: BoxDecoration(
               color: (pos == selected) ? Colors.white : Colors.transparent,
@@ -67,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: SvgPicture.asset(
             icon,
             color: Colors.black.withOpacity(pos != 2 ? .5 : 1),
-            fit: BoxFit.none,
+            fit: BoxFit.contain,
           ),
         ));
   }

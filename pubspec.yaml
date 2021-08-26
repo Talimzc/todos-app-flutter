@@ -62,7 +62,7 @@ flutter:
   assets:
     - assets/icons/flag.svg
     - assets/icons/home.svg
-    - assets/icons/menu.svg
+    - assets/icons/categories.svg
     - assets/icons/settings.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
