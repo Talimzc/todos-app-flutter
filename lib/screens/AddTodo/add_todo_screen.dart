@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todos_app/constants.dart';
-import 'package:todos_app/screens/AddCategory/add_category_screen.dart';
 
-class CategoriesScreen extends StatefulWidget {
-  const CategoriesScreen({Key? key}) : super(key: key);
+class AddTodoScreen extends StatefulWidget {
+  const AddTodoScreen({Key? key}) : super(key: key);
 
   @override
-  _CategoriesScreenState createState() => _CategoriesScreenState();
+  _AddTodoScreenState createState() => _AddTodoScreenState();
 }
 
-class _CategoriesScreenState extends State<CategoriesScreen> {
+class _AddTodoScreenState extends State<AddTodoScreen> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     final title = Column(
       children: <Widget>[
         Text("Todo.",
@@ -30,17 +27,18 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       ],
     );
     final subtitle = Text(
-      "Categories",
+      "Add Todo",
       style: TextStyle(
           fontSize: 16, fontWeight: FontWeight.w600, color: kYellowColor),
     );
-    final categoriesList = Container(
+
+    final containerForm = Container(
       height: 300,
       width: double.infinity,
       child: Center(
         child: Container(
           child: Text(
-            "List Categories Here",
+            "Form Todos Here",
             style:
                 TextStyle(fontWeight: FontWeight.w300, color: kTextThinColor),
           ),
@@ -48,35 +46,20 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       ),
     );
 
-    final subtitleWButton = GestureDetector(
+    final doneButton = GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => AddCategoryScreen()),
-        );
+        Navigator.pop(context);
       },
       child: Container(
-        child: Container(
-          width: 150,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Container(
-                height: 20,
-                width: 20,
-                child: SvgPicture.asset(
-                  'assets/icons/add.svg',
-                  color: kYellowColor,
-                ),
-              ),
-              Text(
-                "New Category",
-                style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    color: kYellowColor,
-                    fontSize: 16),
-              )
-            ],
+        height: 40,
+        width: double.infinity,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(kBorderRadius),
+            color: kBlueColor),
+        child: Center(
+          child: Text(
+            "DONE",
+            style: TextStyle(fontWeight: FontWeight.w600, color: kWhiteColor),
           ),
         ),
       ),
@@ -100,11 +83,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 SizedBox(
                   height: 15,
                 ),
-                categoriesList,
+                containerForm,
                 SizedBox(
                   height: 15,
                 ),
-                subtitleWButton
+                doneButton
               ],
             ),
           )),
